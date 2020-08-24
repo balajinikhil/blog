@@ -40,6 +40,10 @@ authorSchema.pre("save",async function(next){
     next();
 });
 
+authorSchema.methods.checkPassword = async function(usrPass, checkPass){
+    return await bcrypt.compare(usrPass, checkPass)
+}
+
 const Author = mongoose.model("Author", authorSchema);
 
 module.exports = Author

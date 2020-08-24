@@ -4,10 +4,11 @@ const catchAsync = require("../utils/catchAsync");
 
 exports.getAllArticles = catchAsync(async(req,res,next)=>{
 
-    const articles = await Article.find().populate("author");
+    const articles = await Article.find().populate("author").sort("-publishedAt");
 
     res.status(200).json({
         status:"success",
+        total:articles.length,
         articles
     })
 })
