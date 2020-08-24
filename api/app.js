@@ -18,6 +18,8 @@ const globalErrorHandler = require("./controller/ErrorController");
 const ApiRoutes = require("./routes/apiRoutes")
 
 
+app.use(morgan("dev"));
+
 app.use(function(req, res, next) {
   res.setHeader("Content-Security-Policy", "script-src 'self'");
   return next();

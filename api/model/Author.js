@@ -25,11 +25,10 @@ const authorSchema = new mongoose.Schema({
         }
     },
 
-    articles:{
+    articles:[{
        type: mongoose.Schema.Types.ObjectId,
-       ref:"Article",
-       default:null
-    }
+       ref:"Article", 
+    }]
 
 });
 

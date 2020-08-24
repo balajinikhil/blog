@@ -4,7 +4,7 @@ const catchAsync = require("../utils/catchAsync");
 
 exports.allAuthors = catchAsync(async(req,res,next)=>{
 
-    const authors = await Author.find();
+    const authors = await Author.find().populate("articles");
 
     res.status(200).json({
         status:"success",

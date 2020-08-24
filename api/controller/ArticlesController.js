@@ -1,4 +1,4 @@
-const Articles = require("../model/Articles");
+const Author = require("../model/Author");
 const Article = require("../model/Articles");
 const catchAsync = require("../utils/catchAsync");
 
@@ -15,6 +15,10 @@ exports.getAllArticles = catchAsync(async(req,res,next)=>{
 exports.addNewArticle = catchAsync(async(req,res,next)=>{
 
     const article = await Article.create(req.body);
+
+    const author = await Author.findById(req.body.author);
+    await author.articles.push(article);
+    author.save();
 
     res.status(201).json({
         status:"created",
