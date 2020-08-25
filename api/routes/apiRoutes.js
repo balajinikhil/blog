@@ -2,7 +2,8 @@ const router = require('express').Router();
 
 const {
     getAllArticles,
-    addNewArticle
+    addNewArticle,
+    getOneArticle
 } = require("../controller/ArticlesController");
 
 const {
@@ -17,6 +18,7 @@ const {
 // ARTICLES
 router.get("/articles", getAllArticles);
 router.post("/article/new", addNewArticle);
+router.get("/article/:slug", getOneArticle);
 
 // AUTHORS
 router.get("/authors", allAuthors);

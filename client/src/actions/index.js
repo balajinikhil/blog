@@ -1,6 +1,8 @@
 import {
-    ALL_ARTICLES
+    ALL_ARTICLES,
+    ARTICLE
 } from "./types"
+
 import api from "../api"
 
 export const allArticle = () =>async dispatch =>{
@@ -10,5 +12,15 @@ export const allArticle = () =>async dispatch =>{
     dispatch({
         type:ALL_ARTICLES,
         payload:response.data.articles
+    })
+}
+
+export const singleArticle = (id) => async dispatch => {
+    
+    const response = await api.get(`/article/${id}`);
+    
+    dispatch({
+        type:ARTICLE,
+        payload:response.data.article
     })
 }

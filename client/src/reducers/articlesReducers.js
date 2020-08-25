@@ -1,6 +1,7 @@
 import _ from "lodash"
 import {
-    ALL_ARTICLES
+    ALL_ARTICLES,
+    ARTICLE
 } from "../actions/types";
 
 const articlesReducer = (state={}, action)=>{
@@ -8,7 +9,9 @@ const articlesReducer = (state={}, action)=>{
     switch(action.type){
 
         case ALL_ARTICLES:
-            return {...state, ..._.mapKeys(action.payload, "_id")};
+            return { ..._.mapKeys(action.payload, "_id")};
+        case ARTICLE:
+            return {  [action.payload.slug]:action.payload };
         default:
             return state
 

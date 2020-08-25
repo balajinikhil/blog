@@ -27,3 +27,12 @@ exports.addNewArticle = catchAsync(async(req,res,next)=>{
     })
 });
 
+exports.getOneArticle = catchAsync(async(req,res,next)=>{
+
+    const article = await Article.findOne({slug:req.params.slug}).populate("author");
+
+    res.status(200).json({
+        status:"success",
+        article
+    })
+})
