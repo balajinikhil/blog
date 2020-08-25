@@ -1,6 +1,8 @@
 import {combineReducers} from "redux";
-import authReducer from "./authReducer"
+
+import articlesReducer from "./articlesReducers";
 
 export default combineReducers({
-    auth:authReducer
+    auth:()=>"dev",
+    articles:articlesReducer
 })

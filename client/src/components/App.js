@@ -1,25 +1,20 @@
-import React from "react"
-import {BrowserRouter, Route} from "react-router-dom"
+import React from 'react'
+import {Route, BrowserRouter} from "react-router-dom"
 
-import NavBar from "./NavBar"
 import Home from "./Views/Home"
-import Login from "./Views/Login"
+import NavBar from "./Views/NavBar"
+import Dashboard from "./Admin/Dashboard"
 
 class App extends React.Component{
 
     render(){
         return(
-            <div>
-                <BrowserRouter>
-                    <NavBar />
-                    
-                        <div className="ui container">
-                            <Route path="/" exact component={Home} />
-                            <Route path="/author/login"  component={Login} />
-                        </div>
-                   
-                </BrowserRouter>
-            </div>
+            <BrowserRouter>
+                <NavBar />
+                <Route path="/" exact component={Home} />
+                <Route path="/admin" component={Dashboard} />
+            </BrowserRouter>
+
         )
     }
 }

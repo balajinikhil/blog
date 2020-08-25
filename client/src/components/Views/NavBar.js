@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 class NavBar extends React.Component{
 
@@ -10,11 +11,9 @@ class NavBar extends React.Component{
                 <div className="ui borderless main menu fixed nav" style={this.style}>
                     <div className="ui text container">
                         <div className="header item">
-                            <i className="user icon"></i>
+                            <Link to="/" >Logo</Link>
                         </div>
-                        <a href="/" className="item">Main</a>
-                        <a href="#" className="item">Articles</a>
-                        <div className="ui right floated item">Logout</div>
+                        
                     </div>
                 </div>
                 <div style={{marginBottom:"80px"}}></div>

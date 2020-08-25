@@ -1,20 +1,14 @@
 import {
-    SIGN_IN
+    ALL_ARTICLES
 } from "./types"
+import api from "../api"
 
-import Api from "../api/api";
+export const allArticle = () =>async dispatch =>{
 
-export const login = obj => async dispatch => {
-
-    const response = await Api.post("/login", {
-        email:obj.email,
-        password:obj.password
-    })
-
-    console.log(response.data);
+    const response = await api.get("/articles");
 
     dispatch({
-        type:SIGN_IN,
-        payload:response.data.auth
+        type:ALL_ARTICLES,
+        payload:response.data.articles
     })
 }
