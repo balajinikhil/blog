@@ -23,7 +23,7 @@ class Article extends React.Component{
                 <br />
                 {arr.map((el,i)=>{
                     return(
-                    <p className="content" key={i}>{el}</p>
+                    <p className="content" key={i}>{`${el}.`}</p>
                     )
                 })}
                 <br />

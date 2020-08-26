@@ -7,7 +7,7 @@ exports.getAllArticles = catchAsync(async(req,res,next)=>{
     const page = req.query.page * 1 || 1;
     const limit = req.query.limit * 1 || 20;
     const skip = (page - 1) * limit;
-    const articles = await Article.find().populate("author").sort("-publishedAt").skip(skip).limit(limit);
+    const articles = await Article.find().sort("-publishedAt").populate("author").skip(skip).limit(limit)
 
     res.status(200).json({
         status:"success",

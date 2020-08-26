@@ -20,7 +20,7 @@ const articleSchema = new mongoose.Schema({
 
     publishedAt:{
         type:Date,
-        default:Date.now()
+        default:new Date()
     },
 
     author:{
