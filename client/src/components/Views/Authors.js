@@ -20,7 +20,7 @@ class Authors extends React.Component{
                     <h3 className="ui red ribbon label">Latest Article</h3>
                     {author.articles.map((article, i)=>{
 
-                        if(i===0){
+                        if(i===author.articles.length - 1 ){
                             return(
                                 <div className="ui segment" key={i} style={{overflow:"hidden"}}>
                                     <img src={article.urlToImg} alt={article.title} className="ui small left floated image"/>

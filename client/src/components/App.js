@@ -7,6 +7,7 @@ import Dashboard from "./Admin/Dashboard"
 import Article from "./Views/Article"
 import Authors from "./Views/Authors"
 import AuthorArticle from './Views/AuthorArticles'
+import AddArticle from './Admin/AddArticle'
 
 class App extends React.Component{
 
@@ -19,6 +20,8 @@ class App extends React.Component{
                 <Route path="/admin" component={Dashboard} />
                 <Route path="/authors" component={Authors} />
                 <Route path="/author/:id" component={AuthorArticle} />
+
+                <Route path="/new/article" component={AddArticle} />
             </BrowserRouter>
 
         )
