@@ -22,3 +22,12 @@ exports.addAuthor = catchAsync(async(req,res,next)=>{
     })
 });
 
+exports.singleAuthor = catchAsync(async(req,res,next)=>{
+
+    const author = await Author.findById(req.params.id).populate("articles");
+
+    res.status(200).json({
+        status:"success",
+        author
+    })
+})

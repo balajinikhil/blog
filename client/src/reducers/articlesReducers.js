@@ -11,7 +11,7 @@ const articlesReducer = (state={}, action)=>{
         case ALL_ARTICLES:
             return { ..._.mapKeys(action.payload, "_id")};
         case ARTICLE:
-            return {  [action.payload.slug]:action.payload };
+            return {  [action.payload._id]:action.payload };
         default:
             return state
 

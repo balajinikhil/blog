@@ -4,6 +4,7 @@ import {connect} from "react-redux"
 import {
     singleArticle
 } from "../../actions"
+import Loading from "../Loading";
 
 class Article extends React.Component{
 
@@ -32,21 +33,11 @@ class Article extends React.Component{
         )
     }
 
-    loading = ()=>{
-        return(
-            <div className="ui">
-            <div className="ui active dimmer">
-              <div className="ui indeterminate text loader">Preparing Article</div>
-            </div>
-            <p></p>
-          </div>
-        )
-    }
-
     render(){
+   
         return(
             <div className="ui container">
-                {this.props.article ? this.renderContent(): this.loading()}
+                {this.props.article ? this.renderContent(): <Loading />}
             </div>
         )
     }

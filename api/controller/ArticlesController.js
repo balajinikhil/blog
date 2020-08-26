@@ -4,7 +4,10 @@ const catchAsync = require("../utils/catchAsync");
 
 exports.getAllArticles = catchAsync(async(req,res,next)=>{
 
-    const articles = await Article.find().populate("author").sort("-publishedAt");
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || 20;
+    const skip = (page - 1) * limit;
+    const articles = await Article.find().populate("author").sort("-publishedAt").skip(skip).limit(limit);
 
     res.status(200).json({
         status:"success",
@@ -29,7 +32,7 @@ exports.addNewArticle = catchAsync(async(req,res,next)=>{
 
 exports.getOneArticle = catchAsync(async(req,res,next)=>{
 
-    const article = await Article.findOne({slug:req.params.slug}).populate("author");
+    const article = await Article.findById(req.params.id).populate("author");
 
     res.status(200).json({
         status:"success",

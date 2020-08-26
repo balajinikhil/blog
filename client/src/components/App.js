@@ -5,6 +5,8 @@ import Home from "./Views/Home"
 import NavBar from "./Views/NavBar"
 import Dashboard from "./Admin/Dashboard"
 import Article from "./Views/Article"
+import Authors from "./Views/Authors"
+import AuthorArticle from './Views/AuthorArticles'
 
 class App extends React.Component{
 
@@ -15,6 +17,8 @@ class App extends React.Component{
                 <Route path="/" exact component={Home} />
                 <Route path="/article/:id" component={Article} />
                 <Route path="/admin" component={Dashboard} />
+                <Route path="/authors" component={Authors} />
+                <Route path="/author/:id" component={AuthorArticle} />
             </BrowserRouter>
 
         )

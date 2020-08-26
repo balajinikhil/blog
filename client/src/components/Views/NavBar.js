@@ -10,9 +10,9 @@ class NavBar extends React.Component{
     sideNav = () => {
         return(
             <div id="mySidenav" className="sidenav" style={{width:this.state.width, zIndex:this.state.zIndex}}  >
-                <a href="javascript:void(0)" className="closebtn" onClick={()=>{this.setState({width:"0px", zIndex:"0"})}} >&times;</a>
+                <button className="closebtn" onClick={()=>{this.setState({width:"0px", zIndex:"0"})}} >&times;</button>
                 <Link to="/" >Home</Link>
-                <Link to="/contact" >Contact</Link>
+                <Link to="/authors">Authors</Link>
             </div>
         )
     }
@@ -23,7 +23,7 @@ class NavBar extends React.Component{
                 <div>{this.sideNav()}</div>
                 <div className="ui borderless main menu fixed nav" style={this.style}>
                     <div className="left floated item" onClick={()=>this.setState({width:"250px", zIndex:"10"})}  >
-                        <i class="bars icon"></i>
+                        <i className="bars icon"></i>
                         Menu
                     </div>
                     <div className="ui text container">

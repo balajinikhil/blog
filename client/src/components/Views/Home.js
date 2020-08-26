@@ -3,9 +3,13 @@ import {connect} from "react-redux"
 import {Link} from 'react-router-dom'
 
 import {allArticle} from "../../actions"
+import Loading from "../Loading"
 
 
 class Home extends React.Component{
+    
+    state = {page:null}
+
     componentDidMount(){
         this.props.allArticle()
     }
@@ -19,28 +23,29 @@ class Home extends React.Component{
                     <div className="author"> <em>By : </em>{article.author.name} @ {new Date(article.publishedAt).toDateString()}</div>
                     <br />
                     <p className="description">{article.description}</p>
-                    <Link to={`/article/${article.slug}`} className="readmore">read more</Link>
+                    <Link to={`/article/${article._id}`} className="readmore ui blue label">read more</Link>
                 </div>
             )
         }))
     }
 
-    loading = ()=>{
-        return(
-            <div className="ui">
-            <div className="ui active dimmer">
-              <div className="ui indeterminate text loader">Preparing Articles</div>
-            </div>
-            <p></p>
-          </div>
-        )
+
+    nextPage = async()=>{
+       const pageno = this.state.page ? this.state.page + 1 : 2
+      await this.setState({page:pageno});
+      this.props.allArticle(this.state.page)
     }
 
     render(){
         
         return(
             <div className="ui container">
-                { this.props.articles.length >= 1 ? this.renderArticles() : this.loading()  }
+                { this.props.articles.length >= 1 ? this.renderArticles() : <Loading />  }
+                <div className="ui green compact  raised segment" style={{margin:"auto"}}>
+                    <div style={{cursor:'pointer'}} onClick={this.nextPage}>
+                        Load More
+                    </div>
+                    </div>
             </div>
         )
     }
