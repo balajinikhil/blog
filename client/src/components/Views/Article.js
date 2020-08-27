@@ -15,7 +15,7 @@ class Article extends React.Component{
 
     renderContent = ()=>{
        const article = this.props.article
-       const arr = this.props.article.content.split(".")
+       const arr = this.props.article.content.split(". ")
         return(
             <div className="ui segment">
                 <h1 className="title"> {article.title} </h1>

@@ -20,7 +20,7 @@ class Home extends React.Component{
                 <div className="ui raised segment" key={i} style={{overflow:"hidden"}}>
                     <img src={article.urlToImg} alt={article.title} className="ui large left floated image"/>
                     <h1 className="title">{article.title}</h1>
-                    <div className="author"> <em>By : </em>{article.author.name} @ {new Date(article.publishedAt).toDateString()}</div>
+                    <Link to={`/author/${article.author._id}`} className="author"> <em>By : </em>{article.author.name} @ {new Date(article.publishedAt).toDateString()}</Link>
                     <br />
                     <p className="description">{article.description}</p>
                     <Link to={`/article/${article._id}`} className="readmore ui blue label">read more</Link>
